@@ -16,8 +16,8 @@ class DashBoard extends React.Component {
   render() {
     return (
       <div className='dashboard'>
-        <Column> {this.state.Tiles.filter((t) => t.col === 1).map((tile) => <Tile key={tile.key} tile={tile} />)} </Column>
-        <Column> {this.state.Tiles.filter((t) => t.col === 2).map((tile) => <Tile key={tile.key} tile={tile} />)} </Column>
+        <Column tiles={this.state.Tiles.filter((t) => t.col === 1)}></Column>
+        <Column tiles={this.state.Tiles.filter((t) => t.col === 2)}></Column>
       </div>
     );
   }

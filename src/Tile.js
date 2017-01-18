@@ -45,9 +45,9 @@ class Tile extends React.Component {
 }
 
 Tile.PropTypes = {
+    key: PropTypes.string.isRequired,
     tile: PropTypes.object.isRequired,   
-    comp: PropTypes.number.isRequired,
-    key: PropTypes.number.isRequired,
+    comp: PropTypes.number.isRequired,    
 
     isDragging: PropTypes.bool.isRequired,
     connectDragSource: PropTypes.func.isRequired      

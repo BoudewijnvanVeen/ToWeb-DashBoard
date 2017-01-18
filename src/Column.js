@@ -23,20 +23,20 @@ const columnCollect = (connect, monitor) => {
 
 class Column extends React.Component {
   render() {
-
     const { canDrop, isOver, connectDropTarget } = this.props;
     const isActive = canDrop && isOver;
 
     return connectDropTarget(
       <div className="column" style={{ border: isOver ? '1px solid red' : '' }}>
-          {this.props.children}
+         {this.props.tiles.map((tile) => <Tile key={tile.key} tile={tile} />)}
       </div>
     );
   }
 }
 
 Column.PropTypes = {
-    tiles: PropTypes.arrayOf(PropTypes.object).isRequired,
+    key: PropTypes.string.isRequired,
+    tiles: PropTypes.arrayOf(PropTypes.object).isRequired,    
 
     connectDropTarget: PropTypes.func.isRequired,
     isOver: PropTypes.bool.isRequired,
