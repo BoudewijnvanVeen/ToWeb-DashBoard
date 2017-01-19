@@ -29,8 +29,7 @@ class Tile extends React.Component {
 
   static propTypes = {  
     key: PropTypes.string.isRequired,
-    tile: PropTypes.object.isRequired,   
-    comp: PropTypes.number.isRequired,   
+    tile: PropTypes.object.isRequired, 
     moveTile: PropTypes.func.isRequired,   
 
     connectDragSource: PropTypes.func.isRequired,
