@@ -20,12 +20,8 @@ const tileSource = {
 const tileTarget = {
   drop(props, monitor) {
     const source = monitor.getItem();
-    if (source === null) { return;}
-    
-    const sourceKey = source.tile.key;
-    const targetKey = props.tile.key;
-
-    props.moveTile(sourceKey, targetKey);
+    if (source === null) { return; }  
+    props.moveTile(source.tile, props.tile);
   }
 };
 

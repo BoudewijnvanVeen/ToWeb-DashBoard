@@ -12,9 +12,10 @@ class Column extends React.Component {
 
   render() { 
     return ( 
-      <div className="column">
-         {this.props.tiles.map((tile) => <Tile key={tile.key} tile={tile} moveTile={this.moveTile} />)}
-    </div>  )  
+      <div id={'column_' + this.props.id} className="column">
+         {this.props.tiles.map((tile) => <Tile key={tile.key} tile={tile} moveTile={this.props.moveTile} />)}
+      </div>  
+    )  
   }
 }
 
