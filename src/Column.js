@@ -6,13 +6,13 @@ class Column extends React.Component {
 
   static propTypes = {      
     tiles: PropTypes.arrayOf(PropTypes.object).isRequired,
-    moveTile: PropTypes.func.isRequired  
+    updateTile: PropTypes.func.isRequired  
   } 
 
   render() { 
     return ( 
       <div className="column">
-         {this.props.tiles.map((tile) => <Tile key={tile.key} tile={tile} moveTile={this.props.moveTile} />)}
+         {this.props.tiles.map((tile) => <Tile key={tile.key} tile={tile} updateTile={this.props.updateTile} />)}
       </div>  
     )  
   }

@@ -5,10 +5,10 @@ import './App.css';
 import DashBoard from './DashBoard'
 
 const data = [
-  { key: 1, title: 'The first title', comp: 1, col: 1 },
-  { key: 2, title: 'The second title', comp: 2, col: 2 },
-  { key: 3, title: 'The third title', comp: 1, col: 1 },
-  { key: 4, title: 'The fourth title', comp: 2, col: 2 }
+  { key: 1, title: 'The first title', comp: 1, col: 1, order: 1 },
+  { key: 2, title: 'The second title', comp: 2, col: 2, order: 1  },
+  { key: 3, title: 'The third title', comp: 1, col: 1, order: 2  },
+  { key: 4, title: 'The fourth title', comp: 2, col: 2, order: 2  }
 ]
 
 class App extends Component {

@@ -1,6 +1,6 @@
 
 import flow from 'lodash/flow';
-
+import _ from "lodash"
 import React, { PropTypes }  from 'react';
 import { DragSource, DropTarget } from 'react-dnd';
 
@@ -17,11 +17,16 @@ const tileSource = {
   }
 };
 
-const tileTarget = {
+const tileTarget = {  
   drop(props, monitor) {
-    const source = monitor.getItem();
-    if (source === null) { return; }  
-    props.moveTile(source.tile, props.tile);
+    const source = monitor.getItem().tile;
+    const target = props.tile;
+
+    if (source === null || target === null) 
+      return;
+
+    var newSource = _.merge(source, { col: target.col, order: target.order + 1 });  
+    props.updateTile(newSource);
   }
 };
 
@@ -30,7 +35,7 @@ class Tile extends React.Component {
   static propTypes = {  
     key: PropTypes.string.isRequired,
     tile: PropTypes.object.isRequired, 
-    moveTile: PropTypes.func.isRequired,   
+    updateTile: PropTypes.func.isRequired,   
 
     connectDragSource: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,    
