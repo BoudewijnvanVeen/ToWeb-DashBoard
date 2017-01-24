@@ -17,11 +17,16 @@ class DashBoard extends React.Component {
       this.state = { Tiles: this.props.Tiles.sort((a, b) => a.order-b.order) };
   }  
 
-  updateTile(Tile) {  
-    var Tiles = this.state.Tiles;  
-    var index = _.indexOf(Tiles, _.find(Tiles, {key: Tile.key}));
-    Tiles.splice(index, 1, Tile);
-    this.setState({ Tiles: Tiles });
+  updateTile(newTile, placeBefore) {  
+    var _tiles = this.state.Tiles;  
+
+    var currentIndex = _.indexOf(_tiles, _.find(_tiles, {key: newTile.key}));
+    _tiles.splice(currentIndex, 1, newTile);
+
+    var newIndex = _.indexOf(_tiles, _.find(_tiles, {key: placeBefore.key}));
+    _tiles.splice(newIndex, 0, _tiles.splice(currentIndex, 1)[0]); 
+
+    this.setState({ Tiles: _tiles });
   }
 
   render() {
