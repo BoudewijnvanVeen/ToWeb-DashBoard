@@ -26,7 +26,7 @@ const tileTarget = {
       return;
 
     var newSource = _.merge(source, { col: target.col, order: target.order + 1 });  
-    props.updateTile(newSource);
+    props.updateTile(newSource, target);
   }
 };
 
