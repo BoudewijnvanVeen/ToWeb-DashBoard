@@ -1,14 +1,17 @@
 
-import React, { PropTypes }  from 'react';
+
 import _ from "lodash"
-import Column from './Column'
+import React, { PropTypes }  from 'react';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+
+import Column from './Column'
 
 class DashBoard extends React.Component {
 
   PropTypes = {      
-    tiles: PropTypes.arrayOf(PropTypes.object).isRequired   
+    tiles: PropTypes.arrayOf(PropTypes.object).isRequired,
+    components: PropTypes.object.isRequired    
   }
 
   constructor(props) {
@@ -32,8 +35,8 @@ class DashBoard extends React.Component {
   render() {
     return (
       <div className='dashboard'>
-        <Column tiles={this.state.Tiles.filter((t) => t.col === 1)} updateTile={this.updateTile} ></Column>
-        <Column tiles={this.state.Tiles.filter((t) => t.col === 2)} updateTile={this.updateTile} ></Column>
+        <Column class="column1" tiles={this.state.Tiles.filter((t) => t.col === 1)} updateTile={this.updateTile} components={this.props.components} ></Column>
+        <Column class="column2" tiles={this.state.Tiles.filter((t) => t.col === 2)} updateTile={this.updateTile} components={this.props.components} ></Column>
       </div>
     );
   }

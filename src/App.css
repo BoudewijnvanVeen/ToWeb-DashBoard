@@ -33,8 +33,15 @@
     resize: vertical;
 }
 
-.column{
+.column1 {
     width: 300px;
+    float: left;
+    padding: 5px;
+    border: 1px dashed black;
+}
+
+.column2 {
+    width: 100%;
     float: left;
     padding: 5px;
     border: 1px dashed black;
