@@ -20,14 +20,11 @@ class DashBoard extends React.Component {
       this.state = { Tiles: this.props.Tiles.sort((a, b) => a.order-b.order) };
   }  
 
-  updateTile(newTile, placeBefore) {  
-    var _tiles = this.state.Tiles;  
+  updateTile(draggedTile) {  
+    var _tiles = Object.assign([], this.state.Tiles); 
 
-    var currentIndex = _.indexOf(_tiles, _.find(_tiles, {key: newTile.key}));
-    _tiles.splice(currentIndex, 1, newTile);
-
-    var newIndex = _.indexOf(_tiles, _.find(_tiles, {key: placeBefore.key}));
-    _tiles.splice(newIndex, 0, _tiles.splice(currentIndex, 1)[0]); 
+    var currentIndex = _.indexOf(_tiles, _.find(_tiles, {key: draggedTile.key}));
+    _tiles.splice(currentIndex, 1, draggedTile);    
 
     this.setState({ Tiles: _tiles });
   }
@@ -37,6 +34,7 @@ class DashBoard extends React.Component {
       <div className='dashboard'>
         <Column class="column1" tiles={this.state.Tiles.filter((t) => t.col === 1)} updateTile={this.updateTile} components={this.props.components} ></Column>
         <Column class="column2" tiles={this.state.Tiles.filter((t) => t.col === 2)} updateTile={this.updateTile} components={this.props.components} ></Column>
+        <Column class="column3" tiles={this.state.Tiles.filter((t) => t.col === 3)} updateTile={this.updateTile} components={this.props.components} ></Column>
       </div>
     );
   }

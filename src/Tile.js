@@ -1,6 +1,6 @@
 
 
-import _ from "lodash"
+import _ from 'lodash';
 import React, { PropTypes }  from 'react';
 import { DragSource, DropTarget } from 'react-dnd';
 
@@ -11,15 +11,16 @@ const tileSource = {
 };
 
 const tileTarget = {  
+  // Called when the draggedTile is dropped on the targetTile
   drop(props, monitor) {
-    const source = monitor.getItem().tile;
-    const target = props.tile;
+    const draggedTile = monitor.getItem().tile;
+    const targetTile = props.tile;
 
-    if (source === null || target === null) 
+    if (draggedTile === null || targetTile === null) 
       return;
 
-    var newSource = _.merge(source, { col: target.col, order: target.order + 1 });  
-    props.updateTile(newSource, target);
+    _.merge(draggedTile, { col: targetTile.col, order: targetTile.order + 1 });  
+    props.updateTile(draggedTile);
   }
 };
 

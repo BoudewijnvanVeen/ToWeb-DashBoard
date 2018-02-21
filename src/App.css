@@ -1,5 +1,22 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body, .App
+{    
+    height: 100%;
+    min-height: 100%;
+    background: #e7e9ec;   
+    min-width:610px;
+    width: auto !important;
+    width:610px;
+}
+
 .App {
   text-align: center;
+  background-color:#e7e9ec;  
 }
 
 .App-logo {
@@ -7,42 +24,53 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-.tile {
-   padding: 5px;
-   width: 300px;
+.App-header {
+  position: fixed;
+  top:0;
+  width: 100%;   
+  z-index: 3;   
+  height: 100px;  
+  background: #e7e9ec;
+  resize: none;
+  overflow: hidden;
 }
 
-.tile>div{
-    background: #fff;
-    box-shadow: 0px 2px 3px 0.5px rgba(0,0,0,0.2);
-    border-radius: 4px;
-    padding: 15px;
-    overflow-y:auto;
-    resize: vertical;
+.App-header > div * {
+  float: left;
+}
+
+.tile {   
+  padding: 5px;      
+}
+
+.tile>div{          
+   background: #fff;
+   box-shadow: 0px 2px 3px 0.5px rgba(0,0,0,0.2);
+   border-radius: 4px;
+   padding: 5px;
+   overflow-y:auto;
+   resize: vertical;
 }
 
 .column1 {
-    width: 300px;
-    float: left;
-    padding: 5px;
-    border: 1px dashed black;
+  float: left;
+  width: 200px;   
+  height: 100%;
+}
+
+.column3 {
+  min-width: 200px;    
+  width: 100%; 
+  height: 100%;
 }
 
 .column2 {
-    width: 100%;
-    float: left;
-    padding: 5px;
-    border: 1px dashed black;
+  float: right;
+  width: 200px;  
+  height: 100%;
 }
